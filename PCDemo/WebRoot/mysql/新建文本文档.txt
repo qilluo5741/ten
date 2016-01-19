@@ -1,0 +1,28 @@
+/*跳转到test用户数据库*/
+use test;
+create table type
+(
+ 	  typeId varchar(36) primary key not null,
+    typeName varchar(100) not null
+);
+
+create table recipe
+(
+ 	  recipeId varchar(36) primary key not null,
+    recipeName varchar(100) not null,
+		recipeImg varchar(100) not null,
+		typeId varchar(36) not null references type(typeId)
+);
+
+create table recipeShow
+(
+	  recipeShowId varchar(36) primary key not null,
+    recipeShowCailiao varchar(100) not null,
+		recipeShowZuofa varchar(100) not null,
+		recipeImg varchar(100) not null,
+		recipeId varchar(36) not null references recipe(recipeId)
+);
+
+select * from type;
+select * from recipe;
+select * from recipeShow;
